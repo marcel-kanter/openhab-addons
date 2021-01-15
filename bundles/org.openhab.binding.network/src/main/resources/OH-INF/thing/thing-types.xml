@@ -7,5 +7,14 @@
 	<thing-type id="device">
 		<label>Device</label>
 		<description>Device thing of Network Binding.</description>
+		<config-description>
+			<parameter name="hostname" type="text" required="true">
+				<label>Hostname or address</label>
+			</parameter>
+			<parameter name="refreshInterval" type="integer" required="true">
+				<label>Refresh interval</label>
+				<default>60000</default>
+			</parameter>
+		</config-description>
 	</thing-type>
 </thing:thing-descriptions>
