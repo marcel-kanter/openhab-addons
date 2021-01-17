@@ -35,7 +35,7 @@ import org.osgi.service.component.annotations.Component;
 @Component(configurationPid = "binding.network", service = ThingHandlerFactory.class)
 public class NetworkHandlerFactory extends BaseThingHandlerFactory {
 
-    private static final Set<ThingTypeUID> SUPPORTED_THING_TYPES_UIDS = Set.of(THING_TYPE_DEVICE);
+    private static final Set<ThingTypeUID> SUPPORTED_THING_TYPES_UIDS = Set.of(THING_TYPE_DEVICE, THING_TYPE_SERVICE);
 
     @Override
     public boolean supportsThingType(ThingTypeUID thingTypeUID) {
@@ -48,6 +48,9 @@ public class NetworkHandlerFactory extends BaseThingHandlerFactory {
 
         if (thingTypeUID.equals(THING_TYPE_DEVICE)) {
             return new NetworkDeviceHandler(thing);
+        }
+        if (thingTypeUID.equals(THING_TYPE_SERVICE)) {
+            return new NetworkServiceHandler(thing);
         }
 
         return null;

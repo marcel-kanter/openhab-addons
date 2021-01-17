@@ -13,19 +13,15 @@
 package org.openhab.binding.network.internal;
 
 import org.eclipse.jdt.annotation.NonNullByDefault;
-import org.openhab.core.thing.ThingTypeUID;
 
 /**
- * The {@link NetworkBindingConstants} class defines common constants, which are
- * used across the whole binding.
+ * The {@link NetworkServiceConfiguration} class contains fields mapping thing configuration parameters.
  *
  * @author Marcel Kanter - Initial contribution
  */
 @NonNullByDefault
-public class NetworkBindingConstants {
-
-    private static final String BINDING_ID = "network";
-
-    public static final ThingTypeUID THING_TYPE_DEVICE = new ThingTypeUID(BINDING_ID, "device");
-    public static final ThingTypeUID THING_TYPE_SERVICE = new ThingTypeUID(BINDING_ID, "service");
+public class NetworkServiceConfiguration {
+    public String hostname = "";
+    public Integer port = 0;
+    public Integer refreshInterval = 60000;
 }
