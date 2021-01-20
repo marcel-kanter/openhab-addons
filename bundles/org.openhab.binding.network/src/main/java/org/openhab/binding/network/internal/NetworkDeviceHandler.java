@@ -41,13 +41,15 @@ public class NetworkDeviceHandler extends BaseThingHandler {
 
     @Override
     public void initialize() {
-        NetworkDeviceConfiguration config = this.getConfigAs(NetworkDeviceConfiguration.class);
+        NetworkDeviceConfiguration configuration = this.getConfigAs(NetworkDeviceConfiguration.class);
 
         updateStatus(ThingStatus.UNKNOWN);
 
         if ((this.detectionFuture == null) && (this.detectionTask != null)) {
+            this.detectionTask.hostname = configuration.hostname;
+
             this.detectionFuture = this.scheduler.scheduleWithFixedDelay(this.detectionTask, 1000,
-                    config.refreshInterval, TimeUnit.MILLISECONDS);
+                    configuration.refreshInterval, TimeUnit.MILLISECONDS);
         }
     }
 

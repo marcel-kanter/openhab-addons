@@ -19,6 +19,8 @@ package org.openhab.binding.network.internal;
  */
 public class NetworkDeviceDetectionTask implements Runnable {
 
+    public String hostname;
+
     protected NetworkDeviceHandler handler;
 
     public NetworkDeviceDetectionTask(NetworkDeviceHandler handler) {

@@ -19,6 +19,9 @@ package org.openhab.binding.network.internal;
  */
 public class NetworkServiceDetectionTask implements Runnable {
 
+    public String hostname;
+    public Integer port;
+
     protected NetworkServiceHandler handler;
 
     public NetworkServiceDetectionTask(NetworkServiceHandler handler) {
