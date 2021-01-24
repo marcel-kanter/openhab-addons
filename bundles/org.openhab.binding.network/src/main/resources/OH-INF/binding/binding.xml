@@ -5,4 +5,10 @@
 
 	<name>Network Binding</name>
 	<description>The Network binding checks, whether a device is present in the network or not.</description>
+	<config-description>
+		<parameter name="arpingPath" type="text" required="true">
+			<label>Arping path</label>
+			<default>arping</default>
+		</parameter>
+	</config-description>
 </binding:binding>

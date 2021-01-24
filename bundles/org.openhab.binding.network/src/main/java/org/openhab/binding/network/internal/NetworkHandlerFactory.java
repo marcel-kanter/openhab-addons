@@ -14,6 +14,7 @@ package org.openhab.binding.network.internal;
 
 import static org.openhab.binding.network.internal.NetworkBindingConstants.*;
 
+import java.util.Dictionary;
 import java.util.Set;
 
 import org.eclipse.jdt.annotation.NonNullByDefault;
@@ -23,7 +24,10 @@ import org.openhab.core.thing.ThingTypeUID;
 import org.openhab.core.thing.binding.BaseThingHandlerFactory;
 import org.openhab.core.thing.binding.ThingHandler;
 import org.openhab.core.thing.binding.ThingHandlerFactory;
+import org.osgi.service.component.ComponentContext;
+import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Modified;
 
 /**
  * The {@link NetworkHandlerFactory} is responsible for creating things and thing
@@ -37,9 +41,23 @@ public class NetworkHandlerFactory extends BaseThingHandlerFactory {
 
     private static final Set<ThingTypeUID> SUPPORTED_THING_TYPES_UIDS = Set.of(THING_TYPE_DEVICE, THING_TYPE_SERVICE);
 
+    private NetworkBindingConfiguration configuration = new NetworkBindingConfiguration();
+
     @Override
     public boolean supportsThingType(ThingTypeUID thingTypeUID) {
         return SUPPORTED_THING_TYPES_UIDS.contains(thingTypeUID);
+    }
+
+    @Activate
+    @Override
+    protected void activate(ComponentContext componentContext) {
+        super.activate(componentContext);
+        this.updateConfiguration(componentContext.getProperties());
+    }
+
+    @Modified
+    protected void modified(ComponentContext componentContext) {
+        this.updateConfiguration(componentContext.getProperties());
     }
 
     @Override
@@ -54,5 +72,12 @@ public class NetworkHandlerFactory extends BaseThingHandlerFactory {
         }
 
         return null;
+    }
+
+    private void updateConfiguration(Dictionary<String, Object> dictionary) {
+        try {
+            this.configuration.arpingPath = (String) dictionary.get("arpingPath");
+        } catch (Exception e) {
+        }
     }
 }
