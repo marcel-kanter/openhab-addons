@@ -7,6 +7,9 @@
 	<thing-type id="device">
 		<label>Device</label>
 		<description>Device thing of Network Binding.</description>
+		<channels>
+			<channel id="online" typeId="online"/>
+		</channels>
 		<config-description>
 			<parameter name="hostname" type="text" required="true">
 				<label>Hostname or address</label>
@@ -17,9 +20,13 @@
 			</parameter>
 		</config-description>
 	</thing-type>
+
 	<thing-type id="service">
 		<label>Service</label>
 		<description>Service thing of Network Binding.</description>
+		<channels>
+			<channel id="online" typeId="online"/>
+		</channels>
 		<config-description>
 			<parameter name="hostname" type="text" required="true">
 				<label>Hostname or address</label>
@@ -33,4 +40,10 @@
 			</parameter>
 		</config-description>
 	</thing-type>
+
+	<channel-type id="online">
+		<item-type>Switch</item-type>
+		<label>online</label>
+		<state readOnly="true"/>
+	</channel-type>
 </thing:thing-descriptions>
