@@ -18,6 +18,10 @@
 				<label>Refresh interval</label>
 				<default>60000</default>
 			</parameter>
+			<parameter name="timeout" type="integer" required="true">
+				<label>Timeout</label>
+				<default>3000</default>
+			</parameter>
 		</config-description>
 	</thing-type>
 
@@ -37,6 +41,10 @@
 			<parameter name="refreshInterval" type="integer" required="true">
 				<label>Refresh interval</label>
 				<default>60000</default>
+			</parameter>
+			<parameter name="timeout" type="integer" required="true">
+				<label>Timeout</label>
+				<default>3000</default>
 			</parameter>
 		</config-description>
 	</thing-type>

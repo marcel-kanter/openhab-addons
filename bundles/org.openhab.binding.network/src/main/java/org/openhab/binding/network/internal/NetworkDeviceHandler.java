@@ -47,6 +47,7 @@ public class NetworkDeviceHandler extends BaseThingHandler {
 
         if ((this.detectionFuture == null) && (this.detectionTask != null)) {
             this.detectionTask.hostname = configuration.hostname;
+            this.detectionTask.timeout = configuration.timeout;
 
             this.detectionFuture = this.scheduler.scheduleWithFixedDelay(this.detectionTask, 1000,
                     configuration.refreshInterval, TimeUnit.MILLISECONDS);

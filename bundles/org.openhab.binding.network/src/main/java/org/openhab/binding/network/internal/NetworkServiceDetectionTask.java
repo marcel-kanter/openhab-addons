@@ -21,6 +21,7 @@ public class NetworkServiceDetectionTask implements Runnable {
 
     public String hostname;
     public Integer port;
+    public Integer timeout;
 
     protected NetworkServiceHandler handler;
 

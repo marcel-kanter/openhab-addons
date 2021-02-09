@@ -20,6 +20,7 @@ package org.openhab.binding.network.internal;
 public class NetworkDeviceDetectionTask implements Runnable {
 
     public String hostname;
+    public Integer timeout;
 
     protected NetworkDeviceHandler handler;
 

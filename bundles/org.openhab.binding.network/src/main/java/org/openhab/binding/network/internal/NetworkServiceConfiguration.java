@@ -24,4 +24,5 @@ public class NetworkServiceConfiguration {
     public String hostname = "";
     public Integer port = 0;
     public Integer refreshInterval = 60000;
+    public Integer timeout = 3000;
 }

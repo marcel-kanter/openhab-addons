@@ -23,4 +23,5 @@ import org.eclipse.jdt.annotation.NonNullByDefault;
 public class NetworkDeviceConfiguration {
     public String hostname = "";
     public Integer refreshInterval = 60000;
+    public Integer timeout = 3000;
 }
